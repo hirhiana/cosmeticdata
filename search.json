@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "shiny-apps.html",
+    "href": "shiny-apps.html",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Shiny is an R package that makes it easy to build interactive web applications directly from R. It allows you to combine R’s powerful data analysis capabilities with interactive UI elements like sliders, dropdowns, and plots — all from a browser.\nShiny apps are ideal for dashboards, data exploration tools, simulations, and sharing insights with non-technical users.\nUsing Shiny, you can create robust browser-based applications from your R code. It enables you to create analysis, exploration, and presentation tools with little to no front-end scripting."
+  },
+  {
+    "objectID": "shiny-apps.html#about-shiny-app",
+    "href": "shiny-apps.html#about-shiny-app",
+    "title": "Essay on Shiny Apps",
+    "section": "",
+    "text": "Shiny is an R package that makes it easy to build interactive web applications directly from R. It allows you to combine R’s powerful data analysis capabilities with interactive UI elements like sliders, dropdowns, and plots — all from a browser.\nShiny apps are ideal for dashboards, data exploration tools, simulations, and sharing insights with non-technical users.\nUsing Shiny, you can create robust browser-based applications from your R code. It enables you to create analysis, exploration, and presentation tools with little to no front-end scripting."
+  },
+  {
+    "objectID": "shiny-apps.html#how-does-it-work",
+    "href": "shiny-apps.html#how-does-it-work",
+    "title": "Essay on Shiny Apps",
+    "section": "⚙️ How Does It Work?",
+    "text": "⚙️ How Does It Work?\nA Shiny app typically has two main components:\n\nUI (User Interface): Defines how the app looks — layout, widgets, and outputs.\nServer: Contains the logic that runs in response to user input — filtering data, generating plots, etc.\n\nHere’s a simple example:\n\nlibrary(shiny)\n\nui &lt;- fluidPage(\n  titlePanel(\"Hello Shiny!\"),\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"obs\", \"Number of observations:\", min = 1, max = 1000, value = 500)\n    ),\n    mainPanel(\n      plotOutput(\"distPlot\")\n    )\n  )\n)\n\nserver &lt;- function(input, output) {\n  output$distPlot &lt;- renderPlot({\n    hist(rnorm(input$obs))\n  })\n}\n\nshinyApp(ui = ui, server = server)\n\nShiny applications not supported in static R Markdown documents"
+  },
+  {
+    "objectID": "shiny-apps.html#when-is-shiny-appropriate",
+    "href": "shiny-apps.html#when-is-shiny-appropriate",
+    "title": "Essay on Shiny Apps",
+    "section": "When Is Shiny Appropriate?",
+    "text": "When Is Shiny Appropriate?\n\nYou’re building tools for internal use (e.g., dashboards)\nYou want to enable user-driven exploration of data\nYou wish to communicate insights interactively without requiring people to execute R code.\n\nYou’re building tools for internal use (e.g., dashboards)\nYou want to enable user-driven exploration of data\nYou wish to communicate insights interactively without requiring people to execute R code."
+  },
+  {
+    "objectID": "shiny-apps.html#benefit-drawback-of-shiny",
+    "href": "shiny-apps.html#benefit-drawback-of-shiny",
+    "title": "Essay on Shiny Apps",
+    "section": "Benefit & drawback of Shiny",
+    "text": "Benefit & drawback of Shiny\nBenefit\n\nDynamic and interactive\nExcellent for data-driven visual storytelling\nSimple to set up using a Shiny Server or shinyapps.io\n\nDrawback\n\nIf you are unfamiliar with reactive programming, the learning curve is steeper.\nMay require optimization for large datasets\n\nExample of using Shiny app for cosmetics dataset\n\nlibrary(shiny)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\ncosmetics &lt;- data.frame(\n  Product = c(\"Glow Serum\", \"Matte Lipstick\", \"Hydrating Cream\", \"Eyeliner\", \"Blush\"),\n  Price = c(25, 15, 30, 12, 20),\n  Rating = c(4.8, 4.3, 4.7, 4.1, 4.5),\n  Category = c(\"Serum\", \"Makeup\", \"Skincare\", \"Makeup\", \"Makeup\")\n)\n\nui &lt;- fluidPage(\n  titlePanel(\"Cosmetics: Price vs. Rating\"),\n  sidebarLayout(\n    sidebarPanel(\n      selectInput(\"category\", \"Select Category:\", choices = unique(cosmetics$Category))\n    ),\n    mainPanel(\n      plotOutput(\"ratingPlot\")\n    )\n  )\n)\n\nserver &lt;- function(input, output) {\n  output$ratingPlot &lt;- renderPlot({\n    filtered &lt;- cosmetics %&gt;% filter(Category == input$category)\n    ggplot(filtered, aes(x = Price, y = Rating, label = Product)) +\n      geom_point(size = 4, color = \"#E91E63\") +\n      geom_text(vjust = -1) +\n      theme_minimal() +\n      labs(title = paste(\"Price vs Rating for\", input$category),\n           x = \"Price ($)\", y = \"Rating (out of 5)\")\n  })\n}\n\nshinyApp(ui = ui, server = server)\n\nShiny applications not supported in static R Markdown documents\n\n\nThis interactive Shiny app allows users to explore how the Price and Rating of cosmetics vary across different product categories."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home Page",
+    "section": "",
+    "text": "I am Rhiana\nAs a passionate professional in the beauty and cosmetics industry, I aspire to become a strategic marketing leader, leveraging data-driven insights and global branding strategies to make innovative, customer-focused decisions.\n\n\n\nData Wrangling & Visualization (R, ggplot2, plotly)\nWeb Development with Quarto & Shiny\nMarketing Strategy and Business Development\nCommunication & International Collaboration\n\n\n\n\nMBA\nCalifornia State Polytechnic University, Pomona\n(01/2025 - now )\nBSc in Biochemistry\nUniversity of Science\n(2018 - 2022)"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Home Page",
+    "section": "",
+    "text": "Data Wrangling & Visualization (R, ggplot2, plotly)\nWeb Development with Quarto & Shiny\nMarketing Strategy and Business Development\nCommunication & International Collaboration"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Home Page",
+    "section": "",
+    "text": "MBA\nCalifornia State Polytechnic University, Pomona\n(01/2025 - now )\nBSc in Biochemistry\nUniversity of Science\n(2018 - 2022)"
+  },
+  {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Cosmetics Market Dashboard",
+    "section": "",
+    "text": "The data of Cosmetic products sold across five countries: Korea, France, Japan, USA and Vietnam\nThis dashboard explores key metrics of cosmetic products sold across countries, including pricing, ratings, and sales volume.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(plotly)\n\n\nAttaching package: 'plotly'\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\nThe following object is masked from 'package:stats':\n\n    filter\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n# Sample cosmetics dataset\ncosmetics &lt;- tibble(\n  Product = c(\"Serum B5\", \"Cream B\", \"Toner C\", \"Serum HA\", \"Lotion\"),\n  Brand = c(\"GlowUp\", \"DewSkin\", \"PureTone\", \"GlowUp\", \"DewSkin\"),\n  Category = c(\"Serum\", \"Moisturizer\", \"Toner\", \"Serum\", \"Moisturizer\"),\n  Price = c(45, 60, 28, 50, 55),\n  Rating = c(4.7, 4.5, 4.2, 4.8, 4.1),\n  Units_Sold = c(1500, 1200, 2000, 1600, 1100),\n  Country = c(\"Korea\", \"France\", \"Japan\", \"USA\", \"Vietnam\")\n)\n\n# Product Rating vs Price plot\np1 &lt;- ggplot(cosmetics, aes(x = Price, y = Rating, color = Category, text = Product)) +\n  geom_point(size = 4, alpha = 0.8) +\n  theme_minimal() +\n  labs(title = \"Product Rating vs Price\", x = \"Price ($)\", y = \"Rating (out of 5)\")\n\nggplotly(p1, tooltip = c(\"text\", \"x\", \"y\"))\n\n\n\n\n\nData of units Sold by Country\n\np2 &lt;- ggplot(cosmetics, aes(x = reorder(Country, Units_Sold), y = Units_Sold, fill = Country)) +\n  geom_bar(stat = \"identity\") +\n  coord_flip() +\n  theme_minimal() +\n  labs(title = \"Units Sold by Country\", x = \"Country\", y = \"Units Sold\")\n\nggplotly(p2)\n\n\n\n\n\nThe number of cosmetics in the table\n\nlibrary(DT)\ndatatable(\n  cosmetics,\n  options = list(pageLength = 5),\n  caption = \"Cosmetics Products Overview\"\n)"
+  },
+  {
+    "objectID": "shiny-live.html",
+    "href": "shiny-live.html",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Shinylive is a new way to run Shiny apps directly in the browser — no R server required! It uses WebAssembly (Wasm) to run a version of R in the browser itself, which means your app is completely serverless and works just like a regular web page.\nThis makes it easy to publish and share interactive apps and does not need deploying anything to a server like Shiny Server or shinyapps.io."
+  },
+  {
+    "objectID": "shiny-live.html#about-shinylive",
+    "href": "shiny-live.html#about-shinylive",
+    "title": "Essay on Shiny Live",
+    "section": "",
+    "text": "Shinylive is a new way to run Shiny apps directly in the browser — no R server required! It uses WebAssembly (Wasm) to run a version of R in the browser itself, which means your app is completely serverless and works just like a regular web page.\nThis makes it easy to publish and share interactive apps and does not need deploying anything to a server like Shiny Server or shinyapps.io."
+  },
+  {
+    "objectID": "shiny-live.html#the-defferent-shinylive-from-traditional-shiny",
+    "href": "shiny-live.html#the-defferent-shinylive-from-traditional-shiny",
+    "title": "Essay on Shiny Live",
+    "section": "The defferent Shinylive from traditional Shiny?",
+    "text": "The defferent Shinylive from traditional Shiny?\n\n\n\n\n\n\n\n\nFeature\nTraditional Shiny\nShinylive\n\n\n\n\nRuns in\nServer (Ex: shinyapps.io)\nWeb browser (client-side)\n\n\nNeeds server?\nYes\nNo\n\n\nDeployment\nRequires hosting/shinyapps.io\nGitHub Pages, Quarto Pub,…\n\n\nLatency\nDepends on server speed or internet\nInstant (no server round trips)\n\n\nData privacy\nMay send data to server\nAll data stays in browser\n\n\nPerformance\nStronger for complex computations\nBest for lightweight/intermediate apps"
+  },
+  {
+    "objectID": "shiny-live.html#pros-and-cons",
+    "href": "shiny-live.html#pros-and-cons",
+    "title": "Essay on Shiny Live",
+    "section": "Pros and Cons",
+    "text": "Pros and Cons\n\n✅ Pros of Shinylive\n\nEasy deployment — just push to GitHub or Quarto Pub.\nNo server costs — zero hosting fees.\nFaster interaction — all logic is browser-side.\nPrivate data stays private — nothing sent to a server.\n\n\n\n⚠️ Cons of Shinylive\n\nNot ideal for big data — browser limitations.\nSlower load time — needs to initialize R in the browser.\nNo access to external R packages not yet supported in WebAssembly."
+  },
+  {
+    "objectID": "shiny-live.html#when-to-use-shinylive",
+    "href": "shiny-live.html#when-to-use-shinylive",
+    "title": "Essay on Shiny Live",
+    "section": "When to Use Shinylive?",
+    "text": "When to Use Shinylive?\nUse Shinylive when: - You need a quick prototype. - You’re teaching or demoing. - You want to avoid hosting complexity. - Your app is lightweight and doesn’t need huge datasets or complex backend logic."
+  },
+  {
+    "objectID": "shiny-live.html#conclusion",
+    "href": "shiny-live.html#conclusion",
+    "title": "Essay on Shiny Live",
+    "section": "Conclusion",
+    "text": "Conclusion\nShinylive is an effective tool that reduces the complexity of publishing Shiny apps and increases the accessibility and shareability of interactive R apps. It’s a great platform for our cosmetics dashboard or any lightweight analytics tool because it’s quick, free, and simple to publish."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]
