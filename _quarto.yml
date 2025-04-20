@@ -1,0 +1,22 @@
+project:
+  type: website
+
+website:
+  title: "Rhiana - Cosmetics Market"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Dashboard"
+        href: dashboard.qmd
+      - text: "Shiny Apps"
+        href: shiny-apps.qmd
+      - text: "Shiny Live"
+        href: shiny-live.qmd
+format:
+  html:
+    theme: flatly
+    css: styles.css
+editor: visual 
+excute: 
+freeze: auto

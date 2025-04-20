@@ -1,0 +1,37 @@
+---
+title: "Home Page"
+format:
+  html:
+    page-layout: full
+    toc: false
+---
+
+# 👋 Hi there!
+
+![](images/94f0e358-6a06-4e9a-b5c4-d70cdf927f50.png){fig-align="right" width="283"}
+
+I am Rhiana
+
+As a passionate professional in the beauty and cosmetics industry, I aspire to become a strategic marketing leader, leveraging data-driven insights and global branding strategies to make innovative, customer-focused decisions.
+
+## **💼 Skills** 
+
+-   Data Wrangling & Visualization (R, ggplot2, plotly)
+
+-   Web Development with Quarto & Shiny
+
+-   Marketing Strategy and Business Development
+
+-   Communication & International Collaboration
+
+## 🎓 Education
+
+**MBA** \
+California State Polytechnic University, Pomona
+
+(01/2025 - now )
+
+**BSc in Biochemistry**\
+University of Science
+
+(2018 - 2022)
